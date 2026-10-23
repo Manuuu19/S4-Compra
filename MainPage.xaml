@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="S4___Compra.MainPage"
+             Title="Alcatraz Store - Compra">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="12">
+
+            <Label Text="Precio unitario ($):" FontSize="15" FontAttributes="Bold" />
+            <Entry x:Name="txtPrecio" Keyboard="Numeric" Placeholder="Ej. 12.50" />
+
+            <Label Text="Cantidad:" FontSize="15" FontAttributes="Bold" />
+            <Stepper x:Name="nudCantidad" Minimum="1" Maximum="100" Increment="1" Value="1" />
+            <Label Text="{Binding Source={x:Reference nudCantidad}, Path=Value, StringFormat='Cantidad seleccionada: {0:F0}'}" FontSize="13" TextColor="Gray" />
+
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" Margin="0,10">
+                <Button x:Name="btnCalcular" Text="Calcular" Clicked="btnCalcular_Click" BackgroundColor="#1E88E5" TextColor="White" WidthRequest="120" />
+                <Button x:Name="btnLimpiar" Text="Limpiar" Clicked="btnLimpiar_Click" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="120" />
+            </HorizontalStackLayout>
+
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+
+            <Label x:Name="lblSubtotal" Text="Subtotal: $0.00" TextColor="#B71C1C" FontAttributes="Bold" FontSize="16" />
+            <Label x:Name="lblDescuento" Text="Descuento: $0.00" TextColor="#B71C1C" FontAttributes="Bold" FontSize="16" />
+            <Label x:Name="lblIva" Text="IVA 15%: $0.00" TextColor="#B71C1C" FontAttributes="Bold" FontSize="16" />
+            <Label x:Name="lblTotal" Text="TOTAL A PAGAR: $0.00" TextColor="Black" FontAttributes="Bold" FontSize="19" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
